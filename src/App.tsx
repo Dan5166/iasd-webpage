@@ -9,6 +9,7 @@ import Eventos from "./pages/Eventos";
 import Contacto from "./pages/Contacto";
 import Horarios from "./pages/Horarios";
 import DiezmosYOfrendas from "./pages/DiezmosYOfrendas";
+import GruposPequenos from "./pages/GruposPequenos";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/horarios" element={<Horarios />} />
             <Route path="/diezmos-y-ofrendas" element={<DiezmosYOfrendas />} />
+            <Route path="/nosotros/grupos-pequenos" element={<GruposPequenos />} />
           </Routes>
         </main>
         <Footer />
