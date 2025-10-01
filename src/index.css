@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* en tu archivo CSS global (e.g., globals.css) */
+.font-advent {
+  font-family: wfont_4a3f12_dfb8d0447e284de6a73b4febe68275e1,
+    wf_dfb8d0447e284de6a73b4febe, orig_adventsanslogo, sans-serif;
+}
