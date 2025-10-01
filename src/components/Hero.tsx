@@ -92,7 +92,7 @@ export default function Hero() {
       >
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-white container">
-            <div className="space-y-4 text-left max-w-xl">
+            <div className="space-y-4 text-left lg:max-w-xl p-2">
               <h1 className="text-4xl font-bold">{slides[current].titulo}</h1>
               <p className="text-lg">{slides[current].descripcion}</p>
               <button className="bg-blue-700 hover:bg-blue-800 px-6 py-3 rounded-lg font-semibold cursor-pointer">
@@ -106,13 +106,13 @@ export default function Hero() {
       {/* Botones */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white hover:bg-black/60"
+        className="absolute top-1/2 left-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white hover:bg-black/60 hidden sm:block"
       >
         <i className="fa-solid fa-chevron-left"></i>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white hover:bg-black/60"
+        className="absolute top-1/2 right-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white hover:bg-black/60 hidden sm:block"
       >
         <i className="fa-solid fa-chevron-right"></i>
       </button>
