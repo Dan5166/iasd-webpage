@@ -7,6 +7,7 @@ const slides = [
     titulo: "Bienvenidos a Adventistas Las Condes",
     descripcion: "Un lugar para adorar, servir y crecer juntos en Cristo.",
     boton: "Horarios de culto",
+    link: "horarios",
   },
   {
     imagen:
@@ -14,6 +15,7 @@ const slides = [
     titulo: "Culto de Jóvenes",
     descripcion: "Espacios diseñados para fortalecer tu fe y comunidad.",
     boton: "Participa con nosotros",
+    link: "horarios",
   },
   {
     imagen:
@@ -21,6 +23,7 @@ const slides = [
     titulo: "Servicio Comunitario",
     descripcion: "Compartimos el amor de Cristo sirviendo a nuestra comunidad.",
     boton: "Únete al servicio",
+    link: "servicio",
   },
 ];
 
@@ -98,7 +101,16 @@ export default function Hero() {
               <div className="space-y-4 text-left lg:max-w-xl p-2">
                 <h1 className="text-4xl font-bold">{slide.titulo}</h1>
                 <p className="text-lg">{slide.descripcion}</p>
-                <button className="bg-blue-700 hover:bg-blue-800 px-6 py-3 rounded-lg font-semibold cursor-pointer">
+                <button
+                  className="bg-blue-700 hover:bg-blue-800 px-6 py-3 rounded-lg font-semibold cursor-pointer"
+                  onClick={() => {
+                    const element = document.getElementById(slide.link);
+                    console.log({ element });
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
                   {slide.boton}
                 </button>
               </div>

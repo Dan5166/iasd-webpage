@@ -1,20 +1,22 @@
 // src/pages/GruposPequenos.tsx
+
+import gpImageHero from "../assets/gp/gp-polyn-3.jpeg";
+import gpImage1 from "../assets/gp/gp-conquis-6.jpeg";
+import gpImage2 from "../assets/gp/gp-conquis-10.jpeg";
+import gpImage3 from "../assets/gp/gp-polyn-3.jpeg";
+import gpImage4 from "../assets/gp/gp-conquis-3.jpeg";
+import gpImage5 from "../assets/gp/gp-polyn-2.jpeg";
+import gpImage6 from "../assets/gp/gp-polyn-4.jpeg";
+
 export default function GruposPequenos() {
-  const fotos = [
-    "https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg",
-  ];
+  const fotos = [gpImage1, gpImage2, gpImage3, gpImage4, gpImage5, gpImage6];
 
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero */}
       <section className="relative h-[60vh] flex items-center justify-center text-center">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg"
+          src={gpImageHero}
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover brightness-75"
         />

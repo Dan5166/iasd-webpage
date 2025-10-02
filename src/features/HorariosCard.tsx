@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function HorariosCard() {
   return (
-    <section className="container bg-gray-50 py-12 px-6 rounded-xl shadow-md mx-auto">
+    <section
+      className="container bg-gray-50 py-12 px-6 rounded-xl shadow-md mx-auto"
+      id="horarios"
+    >
       <h2 className="text-2xl font-bold text-blue-900 mb-8 text-center">
         Horarios culto y Ubicación
       </h2>
@@ -73,15 +76,7 @@ export default function HorariosCard() {
                 </p>
                 <p className="text-gray-700">19:30 hrs</p>
                 <p className="text-gray-600">
-                  Virtual vía <span className="text-blue-600">Zoom</span> y{" "}
-                  <a
-                    href="https://www.youtube.com"
-                    target="_blank"
-                    className="text-blue-600 underline"
-                    rel="noreferrer"
-                  >
-                    YouTube
-                  </a>
+                  <span>Presencial</span>
                 </p>
               </div>
             </div>
