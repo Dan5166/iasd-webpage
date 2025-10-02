@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useRef } from "react";
 
 const slides = [
@@ -85,23 +84,28 @@ export default function Hero() {
 
   return (
     <div className="relative w-full h-[600px] overflow-hidden">
-      {/* Slide actual */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-        style={{ backgroundImage: `url(${slides[current].imagen})` }}
-      >
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <div className="text-white container">
-            <div className="space-y-4 text-left lg:max-w-xl p-2">
-              <h1 className="text-4xl font-bold">{slides[current].titulo}</h1>
-              <p className="text-lg">{slides[current].descripcion}</p>
-              <button className="bg-blue-700 hover:bg-blue-800 px-6 py-3 rounded-lg font-semibold cursor-pointer">
-                {slides[current].boton}
-              </button>
+      {/* Slides con fade */}
+      {slides.map((slide, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ backgroundImage: `url(${slide.imagen})` }}
+        >
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="text-white container">
+              <div className="space-y-4 text-left lg:max-w-xl p-2">
+                <h1 className="text-4xl font-bold">{slide.titulo}</h1>
+                <p className="text-lg">{slide.descripcion}</p>
+                <button className="bg-blue-700 hover:bg-blue-800 px-6 py-3 rounded-lg font-semibold cursor-pointer">
+                  {slide.boton}
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ))}
 
       {/* Botones */}
       <button
