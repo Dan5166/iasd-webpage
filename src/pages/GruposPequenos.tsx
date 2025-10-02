@@ -1,6 +1,4 @@
 // src/pages/GruposPequenos.tsx
-import React from "react";
-
 export default function GruposPequenos() {
   const fotos = [
     "https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg",
