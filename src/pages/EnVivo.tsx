@@ -41,7 +41,7 @@ export default function EnVivo() {
       >
         {videoUrl ? (
           <iframe
-            src={videoUrl} // ✅ usamos el estado que ya tiene la URL correcta
+            src={`${videoUrl}?autoplay=1&mute=1&controls=0`}
             title="Transmisión en vivo"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
