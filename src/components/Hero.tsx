@@ -79,6 +79,28 @@ export default function Hero() {
     };
   }, [current]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      let bp = "base (<640px)";
+
+      if (width >= 640 && width < 768) bp = "sm (>=640px)";
+      else if (width >= 768 && width < 1024) bp = "md (>=768px)";
+      else if (width >= 1024 && width < 1280) bp = "lg (>=1024px)";
+      else if (width >= 1280 && width < 1536) bp = "xl (>=1280px)";
+      else if (width >= 1536) bp = "2xl (>=1536px)";
+
+      console.log(`Width: ${width}px → Breakpoint: ${bp}`);
+    };
+
+    // log inicial
+    handleResize();
+
+    // log en cada resize
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // funciones manuales
   const goToSlide = (index: number) => setCurrent(index);
   const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
@@ -86,7 +108,14 @@ export default function Hero() {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative w-full h-[600px] aspect-[16/9] overflow-hidden">
+    <div
+      className="
+    relative w-full
+    aspect-[16/20] /* móvil: <768px */
+    md:aspect-[16/6] /* desde 768px en adelante (tablet, desktop, etc) */
+    overflow-hidden
+  "
+    >
       {/* Slides con fade */}
       {slides.map((slide, i) => (
         <div
