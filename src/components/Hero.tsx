@@ -86,7 +86,7 @@ export default function Hero() {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden">
+    <div className="relative w-full h-[600px] aspect-[16/9] overflow-hidden">
       {/* Slides con fade */}
       {slides.map((slide, i) => (
         <div
