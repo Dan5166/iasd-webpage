@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function EnVivo() {
   const channelId = import.meta.env.VITE_YT_CHANNEL_ID;
   const apiKey = import.meta.env.VITE_YT_API_KEY;
-
+  console.log("Channel ID:", channelId);
   const [videoUrl, setVideoUrl] = useState("");
 
   useEffect(() => {
