@@ -20,15 +20,15 @@ const menuItems = [
       { label: "Grupos Pequeños", path: "/nosotros/grupos-pequenos" },
     ],
   },
-  {
-    label: "Ministerios",
-    children: [
-      { label: "MIPES", path: "/ministerios/mipes" },
-      { label: "Jovenes", path: "/ministerios/jovenes" },
-      { label: "Conquistadores", path: "/ministerios/conquistadores" },
-      { label: "Aventureros", path: "/ministerios/aventureros" },
-    ],
-  },
+  // {
+  //   label: "Ministerios",
+  //   children: [
+  //     { label: "MIPES", path: "/ministerios/mipes" },
+  //     { label: "Jovenes", path: "/ministerios/jovenes" },
+  //     { label: "Conquistadores", path: "/ministerios/conquistadores" },
+  //     { label: "Aventureros", path: "/ministerios/aventureros" },
+  //   ],
+  // },
   { label: "Contacto", path: "/contacto" },
 ];
 

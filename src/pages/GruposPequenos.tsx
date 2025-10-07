@@ -14,11 +14,11 @@ export default function GruposPequenos() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero */}
-      <section className="relative h-[60vh] flex items-center justify-center text-center">
+      <section className="relative h-[60vh] flex items-center justify-center text-center bg-blue-900">
         <img
           src={gpImageHero}
           alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover brightness-75"
+          className="absolute inset-0 w-full h-full object-cover brightness-75 opacity-40"
         />
         <div className="relative z-10 text-white px-6">
           <h1 className="text-5xl font-extrabold drop-shadow-lg mb-4">
