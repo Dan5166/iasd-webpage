@@ -1,28 +1,42 @@
 import { useState } from "react";
 
 interface Cuenta {
-  banco: string;
-  tipo: string;
-  numero: string;
   titular: string;
-  icon: string;
+  banco?: string;
+  tipo?: string;
+  numero?: string;
+  correo?: string;
+  rut?: string;
+  icon?: string;
+  tipoBoton?: "cuentaBancaria" | "enlacePago";
+  link?: string;
+  desc?: string;
+  background?: string;
+  textColor?: string;
 }
 
 export default function DiezmosOfrendas() {
-  const cuentas = [
+  const cuentas: Cuenta[] = [
     {
-      banco: "Banco de Chile",
+      banco: "Banco de Crédito e Inversiones (BCI)",
       tipo: "Cuenta Corriente",
-      numero: "1234567890",
-      titular: "Iglesia Adventista Las Condes",
+      numero: "354 185 24",
+      titular: "Iglesia Adventista del 7o. Día",
+      rut: "65.002.737-K",
+      correo: "tesoreria@iasdlascondes.cl",
       icon: "fa-solid fa-building-columns",
+      tipoBoton: "cuentaBancaria",
+      background: "bg-gray-50",
+      textColor: "text-blue-800",
     },
     {
-      banco: "Banco BCI",
-      tipo: "Cuenta Vista",
-      numero: "0987654321",
-      titular: "Iglesia Adventista Las Condes",
-      icon: "fa-solid fa-building-columns",
+      titular: "7Me",
+      link: "https://giving.7me.app/",
+      icon: "fa-solid fa-hand-holding-dollar",
+      tipoBoton: "enlacePago",
+      desc: "Plataforma segura para donar en línea de la Iglesia Adventista.",
+      background: "bg-blue-50",
+      textColor: "text-blue-900",
     },
   ];
 
@@ -54,37 +68,52 @@ Titular: ${cuenta.titular}`;
         {cuentas.map((cuenta, idx) => (
           <div
             key={idx}
-            className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition relative"
+            className={`p-6 rounded-lg shadow hover:shadow-lg transition relative ${cuenta.background} ${cuenta.textColor}`}
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-4">
-                <i className={`${cuenta.icon} text-blue-600 text-2xl`}></i>
-                <h3 className="text-xl font-semibold text-blue-900">
-                  {cuenta.banco}
+                <i className={`${cuenta.icon} text-2xl`}></i>
+                <h3 className="text-xl font-semibold">
+                  {cuenta.banco || `Pagar a través de ${cuenta.titular}`}
                 </h3>
               </div>
 
-              <button
-                onClick={() => copiarCuenta(cuenta, idx)}
-                className="ml-2 text-sm text-blue-600 hover:text-blue-800"
-                title="Copiar datos completos"
-              >
-                <i className="fa-solid fa-copy"></i>
-              </button>
+              {cuenta.tipoBoton === "cuentaBancaria" && (
+                <button
+                  onClick={() => copiarCuenta(cuenta, idx)}
+                  className="ml-2 text-sm hover:underline"
+                  title="Copiar datos completos"
+                >
+                  <i className="fa-solid fa-copy"></i>
+                </button>
+              )}
             </div>
 
-            <p className="text-gray-700">
-              <span className="font-semibold">Tipo de cuenta:</span>{" "}
-              {cuenta.tipo}
-            </p>
-            <p className="text-gray-700">
-              <span className="font-semibold">Número:</span> {cuenta.numero}
-            </p>
-            <p className="text-gray-700">
-              <span className="font-semibold">Titular:</span> {cuenta.titular}
-            </p>
+            {cuenta.tipoBoton === "cuentaBancaria" ? (
+              <>
+                <p>{cuenta.titular}</p>
+                <p>{cuenta.banco}</p>
+                <p>
+                  {cuenta.tipo} {cuenta.numero}
+                </p>
+                <p>{cuenta.rut}</p>
+                <p>{cuenta.correo}</p>
+              </>
+            ) : (
+              <div className="flex flex-col h-48">
+                <p>{cuenta.desc}</p>
 
-            {/* Mensaje de copiado */}
+                <a
+                  href={cuenta.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center"
+                >
+                  Ir a 7Me
+                </a>
+              </div>
+            )}
+
             {copiado === idx && (
               <span className="absolute top-2 right-2 text-green-600 text-sm font-semibold">
                 ¡Copiado!
