@@ -11,6 +11,7 @@ import Horarios from "./pages/Horarios";
 import DiezmosYOfrendas from "./pages/DiezmosYOfrendas";
 import GruposPequenos from "./pages/GruposPequenos";
 import EnVivo from "./pages/EnVivo";
+import EstudiosBiblicos from "./pages/EstudioBiblicos";
 
 export default function App() {
   return (
@@ -31,6 +32,10 @@ export default function App() {
               element={<GruposPequenos />}
             />
             <Route path="/en-vivo" element={<EnVivo />} />
+            <Route
+              path="/recursos/estudios-biblicos"
+              element={<EstudiosBiblicos />}
+            />
           </Routes>
         </main>
         <Footer />

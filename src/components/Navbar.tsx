@@ -7,9 +7,15 @@ const menuItems = [
   {
     label: "Recursos",
     children: [
-      { label: "Estudios Bíblicos", path: "/recursos/estudios" },
-      { label: "Sermones", path: "/recursos/sermones" },
-      { label: "Música", path: "/recursos/musica" },
+      { label: "Escuela Sabatica", path: "/recursos/escuela-sabatica" },
+      { label: "Estudios Bíblicos", path: "/recursos/estudios-biblicos" },
+      {
+        label: "Material de Estudio",
+        path: "https://www.recursos-biblicos.com/",
+      },
+      // { label: "Alabanza", path: "/alabanza" },
+      // { label: "Musica Online", path: "/musica-online" },
+      // { label: "Programas anteriores", path: "/programas-anteriores" },
     ],
   },
   { label: "Diezmos y Ofrendas", path: "/diezmos-y-ofrendas" },
@@ -35,6 +41,10 @@ const menuItems = [
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  function isExternalLink(path: string) {
+    return /^https?:\/\//.test(path);
+  }
 
   return (
     <nav className="bg-white text-blue-900 font-semibold shadow h-20 z-50">
@@ -93,9 +103,20 @@ export default function Navbar() {
               onMouseLeave={() => setOpenMenu(null)}
             >
               {item.path ? (
-                <Link to={item.path} className="hover:text-blue-600">
-                  {item.label}
-                </Link>
+                isExternalLink(item.path) ? (
+                  <a
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link to={item.path} className="hover:text-blue-600">
+                    {item.label}
+                  </Link>
+                )
               ) : (
                 <span className="cursor-pointer hover:text-blue-600">
                   {item.label}
