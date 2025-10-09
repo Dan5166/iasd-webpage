@@ -54,81 +54,92 @@ Titular: ${cuenta.titular}`;
   };
 
   return (
-    <section className="container mx-auto bg-gray-50 py-12 px-6 rounded-xl shadow-md mt-8">
-      <h2 className="text-2xl font-bold text-blue-900 mb-8 text-center">
-        Diezmos y Ofrendas
-      </h2>
+    <div>
+      <section className="container mx-auto bg-gray-50 py-12 px-6 rounded-xl shadow-md mt-8">
+        <h2 className="text-2xl font-bold text-blue-900 mb-8 text-center">
+          Diezmos y Ofrendas
+        </h2>
 
-      <p className="text-gray-700 mb-6 text-center">
-        Agradecemos tu generosidad. Puedes aportar tus diezmos y ofrendas
-        mediante las siguientes cuentas bancarias:
-      </p>
+        <p className="text-gray-700 mb-6 text-center">
+          Agradecemos tu generosidad. Puedes aportar tus diezmos y ofrendas
+          mediante las siguientes cuentas bancarias:
+        </p>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {cuentas.map((cuenta, idx) => (
-          <div
-            key={idx}
-            className={`p-6 rounded-lg shadow hover:shadow-lg transition relative ${cuenta.background} ${cuenta.textColor}`}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-4">
-                <i className={`${cuenta.icon} text-2xl`}></i>
-                <h3 className="text-xl font-semibold">
-                  {cuenta.banco || `Pagar a través de ${cuenta.titular}`}
-                </h3>
+        <div className="grid md:grid-cols-2 gap-8">
+          {cuentas.map((cuenta, idx) => (
+            <div
+              key={idx}
+              className={`p-6 rounded-lg shadow hover:shadow-lg transition relative ${cuenta.background} ${cuenta.textColor}`}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-4">
+                  <i className={`${cuenta.icon} text-2xl`}></i>
+                  <h3 className="text-xl font-semibold">
+                    {cuenta.banco || `Pagar a través de ${cuenta.titular}`}
+                  </h3>
+                </div>
+
+                {cuenta.tipoBoton === "cuentaBancaria" && (
+                  <button
+                    onClick={() => copiarCuenta(cuenta, idx)}
+                    className="ml-2 text-sm hover:underline"
+                    title="Copiar datos completos"
+                  >
+                    <i className="fa-solid fa-copy"></i>
+                  </button>
+                )}
               </div>
 
-              {cuenta.tipoBoton === "cuentaBancaria" && (
-                <button
-                  onClick={() => copiarCuenta(cuenta, idx)}
-                  className="ml-2 text-sm hover:underline"
-                  title="Copiar datos completos"
-                >
-                  <i className="fa-solid fa-copy"></i>
-                </button>
+              {cuenta.tipoBoton === "cuentaBancaria" ? (
+                <>
+                  <p>{cuenta.titular}</p>
+                  <p>{cuenta.banco}</p>
+                  <p>
+                    {cuenta.tipo} {cuenta.numero}
+                  </p>
+                  <p>{cuenta.rut}</p>
+                  <p>{cuenta.correo}</p>
+                </>
+              ) : (
+                <div className="flex flex-col h-48">
+                  <p>{cuenta.desc}</p>
+
+                  <a
+                    href={cuenta.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center"
+                  >
+                    Ir a 7Me
+                  </a>
+                </div>
+              )}
+
+              {copiado === idx && (
+                <span className="absolute top-2 right-2 text-green-600 text-sm font-semibold">
+                  ¡Copiado!
+                </span>
               )}
             </div>
+          ))}
+        </div>
 
-            {cuenta.tipoBoton === "cuentaBancaria" ? (
-              <>
-                <p>{cuenta.titular}</p>
-                <p>{cuenta.banco}</p>
-                <p>
-                  {cuenta.tipo} {cuenta.numero}
-                </p>
-                <p>{cuenta.rut}</p>
-                <p>{cuenta.correo}</p>
-              </>
-            ) : (
-              <div className="flex flex-col h-48">
-                <p>{cuenta.desc}</p>
-
-                <a
-                  href={cuenta.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-center"
-                >
-                  Ir a 7Me
-                </a>
-              </div>
-            )}
-
-            {copiado === idx && (
-              <span className="absolute top-2 right-2 text-green-600 text-sm font-semibold">
-                ¡Copiado!
-              </span>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-8 text-center text-gray-700">
-        <p>
-          Recuerda que tu aporte ayuda a sostener la obra de la Iglesia y sus
-          ministerios. ¡Gracias por tu fidelidad!
-        </p>
-      </div>
-    </section>
+        <div className="mt-8 text-center text-gray-700">
+          <p>
+            Recuerda que tu aporte ayuda a sostener la obra de la Iglesia y sus
+            ministerios. ¡Gracias por tu fidelidad!
+          </p>
+        </div>
+      </section>
+      <section className="bg-gradient-to-r from-blue-100 to-blue-200 py-20 text-center mt-12">
+        <blockquote className="max-w-2xl mx-auto text-2xl italic font-medium text-blue-900">
+          “Honra a Jehová con tus bienes, y con las primicias de todos tus
+          frutos; y serán llenos tus graneros con abundancia, y tus lagares
+          rebosarán de mosto.”
+          <br />
+          <span className="text-lg font-semibold">— Proverbios 3:9-10</span>
+        </blockquote>
+      </section>
+    </div>
   );
 }

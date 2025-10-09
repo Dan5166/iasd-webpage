@@ -28,7 +28,7 @@ export default function EnVivo() {
     <div className="bg-gray-50 min-h-screen">
       <div className="bg-gray-50 min-h-screen flex flex-col items-center justify-start">
         {/* Título */}
-        <h2 className="text-4xl md:text-5xl font-bold text-blue-800 mt-12 mb-8 text-center">
+        <h2 className="text-3xl md:text-3xl font-bold text-blue-800 mt-12 mb-8 text-center">
           Culto en Vivo
         </h2>
 
@@ -76,7 +76,7 @@ export default function EnVivo() {
         <blockquote className="max-w-2xl mx-auto text-2xl italic font-medium text-blue-900">
           “¡Mirad cuán bueno y cuán delicioso es habitar los hermanos juntos en
           armonía!”
-          <span className="text-lg font-semibold">— Mateo 18:20</span>
+          <span className="text-lg font-semibold">— Salmo 133:1</span>
         </blockquote>
       </section>
     </div>

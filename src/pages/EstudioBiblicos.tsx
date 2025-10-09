@@ -26,59 +26,71 @@ function getDriveDownloadLink(url: string) {
 
 export default function EstudiosBiblicos() {
   return (
-    <div className="bg-gray-50 min-h-screen py-20 px-6">
-      <h2 className="text-3xl md:text-3xl font-bold text-blue-900 text-center mb-12">
-        Estudios Bíblicos
-      </h2>
+    <div className="bg-gray-50 min-h-screen flex flex-col justify-between">
+      <div className="py-20 px-6">
+        <h2 className="text-3xl md:text-3xl font-bold text-blue-900 text-center mb-12">
+          Estudios Bíblicos
+        </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {estudios.map((estudio, idx) => (
-          <div
-            key={idx}
-            className="relative group rounded-2xl overflow-hidden shadow-lg transform hover:scale-[1.03] transition duration-500 cursor-pointer"
-          >
-            {/* Imagen */}
-            <img
-              src={estudio.imagen}
-              alt={estudio.titulo}
-              className="w-full h-64 object-cover"
-            />
-
-            {/* Overlay */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {estudios.map((estudio, idx) => (
             <div
-              className={`absolute inset-0 bg-gradient-to-t from-blue-950/100 to-transparent transition-opacity duration-500  "opacity-100" : "opacity-0"
+              key={idx}
+              className="relative group rounded-2xl overflow-hidden shadow-lg transform hover:scale-[1.03] transition duration-500 cursor-pointer"
+            >
+              {/* Imagen */}
+              <img
+                src={estudio.imagen}
+                alt={estudio.titulo}
+                className="w-full h-64 object-cover"
+              />
+
+              {/* Overlay */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-t from-blue-950/100 to-transparent transition-opacity duration-500  "opacity-100" : "opacity-0"
               `}
-            />
+              />
 
-            {/* Contenido */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 text-white z-10">
-              <h3 className="text-xl text-center font-bold mb-3">
-                {estudio.titulo}
-              </h3>
-              <div className="flex items-center justify-center gap-3">
-                <a
-                  href={getDriveDownloadLink(estudio.link)}
-                  className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2"
-                  download
-                >
-                  <i className="fa-solid fa-download"></i>
-                  Descargar
-                </a>
+              {/* Contenido */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 text-white z-10">
+                <h3 className="text-xl text-center font-bold mb-3">
+                  {estudio.titulo}
+                </h3>
+                <div className="flex items-center justify-center gap-3">
+                  <a
+                    href={getDriveDownloadLink(estudio.link)}
+                    className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2"
+                    download
+                  >
+                    <i className="fa-solid fa-download"></i>
+                    Descargar
+                  </a>
 
-                <a
-                  href={estudio.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2"
-                >
-                  <i className="fa-brands fa-youtube text-lg"></i>
-                  Ver En Youtube
-                </a>
+                  <a
+                    href={estudio.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2"
+                  >
+                    <i className="fa-brands fa-youtube text-lg"></i>
+                    Ver En Youtube
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      {/* Frase inspiradora */}
+      <section className="bg-gradient-to-r from-blue-100 to-blue-200 py-20 text-center">
+        <blockquote className="max-w-2xl mx-auto text-2xl italic font-medium text-blue-900">
+          “Toda la Escritura es inspirada por Dios, y útil para enseñar, para
+          redargüir, para corregir, para instruir en justicia, a fin de que el
+          hombre de Dios sea perfecto, enteramente preparado para toda buena
+          obra.” <br />
+          <span className="text-lg font-semibold">— 2 Timoteo 3:16-17</span>
+        </blockquote>
+      </section>
     </div>
   );
 }
