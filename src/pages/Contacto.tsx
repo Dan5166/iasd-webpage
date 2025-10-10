@@ -40,11 +40,13 @@ export default function Contacto() {
               <strong>Dirección:</strong> Monroe #6500, Las Condes, Santiago,
               Chile
             </p>
-            <p>
-              <strong>Teléfono:</strong> +--- ---- ---
-            </p>
-            <p>
-              <strong>Email:</strong> ---@---.cl
+            <p className="text-md mt-1">
+              <a
+                href="mailto:comunicaciones@iasdlascondes.cl"
+                className="text-blue-500 hover:underline"
+              >
+                comunicaciones@iasdlascondes.cl
+              </a>
             </p>
           </div>
         </div>
