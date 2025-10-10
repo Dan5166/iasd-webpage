@@ -13,6 +13,7 @@ import GruposPequenos from "./pages/GruposPequenos";
 import EnVivo from "./pages/EnVivo";
 import EstudiosBiblicos from "./pages/EstudioBiblicos";
 import EscuelaSabatica from "./pages/EscuelaSabatica";
+import ImageDisplay from "./components/ImageDisplay";
 
 export default function App() {
   return (
@@ -40,6 +41,15 @@ export default function App() {
             <Route
               path="/recursos/estudios-biblicos"
               element={<EstudiosBiblicos />}
+            />
+            <Route
+              path="/imageDisplay"
+              element={
+                <ImageDisplay
+                  path="gs://iasd-webpage-31e06.firebasestorage.app/curso-daniel-banner.jpg"
+                  alt="Sample"
+                />
+              }
             />
           </Routes>
         </main>
