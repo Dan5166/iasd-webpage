@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-blue-950 text-gray-200 mt-12">
@@ -15,27 +17,27 @@ export default function Footer() {
           <h3 className="font-semibold mb-3">Enlaces</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="/" className="hover:text-white transition">
+              <Link to="/" className="hover:text-white transition">
                 Inicio
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/en-vivo" className="hover:text-white transition">
+              <Link to="/en-vivo" className="hover:text-white transition">
                 En vivo
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/recursos/sermones"
+              <Link
+                to="/diezmos-y-ofrendas"
                 className="hover:text-white transition"
               >
-                Sermones
-              </a>
+                Diezmos y ofrendas
+              </Link>
             </li>
             <li>
-              <a href="/contacto" className="hover:text-white transition">
+              <Link to="/contacto" className="hover:text-white transition">
                 Contacto
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -45,7 +47,7 @@ export default function Footer() {
           <h3 className="font-semibold mb-3">Contáctanos</h3>
           <p className="text-sm flex items-center justify-center md:justify-start gap-2">
             <i className="fa-solid fa-location-dot text-blue-400"></i>
-            Av. Ejemplo 123, Las Condes, Santiago
+            Monroe #6500, Las Condes, Santiago, Chile
           </p>
           <p className="text-sm flex items-center justify-center md:justify-start gap-2 mt-2">
             <i className="fa-solid fa-envelope text-blue-400"></i>

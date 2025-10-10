@@ -37,7 +37,8 @@ export default function Contacto() {
           </form>
           <div className="text-gray-700">
             <p>
-              <strong>Dirección:</strong> Monroe #6500, Las Condes
+              <strong>Dirección:</strong> Monroe #6500, Las Condes, Santiago,
+              Chile
             </p>
             <p>
               <strong>Teléfono:</strong> +--- ---- ---
